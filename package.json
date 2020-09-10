@@ -1,0 +1,47 @@
+{
+  "name": "svelte-ssr-webpack-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "webpack-build": "NODE_ENV=production webpack",
+    "webpack-watch": "webpack --watch",
+    "nodemon": "nodemon dist/bundle.js",
+    "start": "npm run webpack-build && node dist/bundle.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PierBover/svelte-ssr-webpack-example.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PierBover/svelte-ssr-webpack-example/issues"
+  },
+  "homepage": "https://github.com/PierBover/svelte-ssr-webpack-example#readme",
+  "nodemonConfig": {
+    "ignore": [
+      "components/*",
+      "scss/*",
+      "server/ssr/*",
+      "server/static/*"
+    ]
+  },
+  "dependencies": {
+    "clean-webpack-plugin": "^3.0.0",
+    "fastify": "^3.3.0",
+    "fastify-compress": "^3.3.0",
+    "fastify-static": "^3.2.0",
+    "file-loader": "^6.1.0",
+    "nodemon-webpack-plugin": "^4.3.2",
+    "rimraf": "^3.0.2",
+    "sass": "^1.26.10",
+    "sass-loader": "^10.0.2",
+    "svelte": "^3.24.1",
+    "svelte-loader": "^2.13.6",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-node-externals": "^2.5.2"
+  }
+}
