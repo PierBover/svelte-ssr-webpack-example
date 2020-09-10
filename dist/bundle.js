@@ -1,1 +1,225 @@
-!function(t){var e={};function n(r){if(e[r])return e[r].exports;var i=e[r]={i:r,l:!1,exports:{}};return t[r].call(i.exports,i,i.exports,n),i.l=!0,i.exports}n.m=t,n.c=e,n.d=function(t,e,r){n.o(t,e)||Object.defineProperty(t,e,{enumerable:!0,get:r})},n.r=function(t){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(t,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(t,"__esModule",{value:!0})},n.t=function(t,e){if(1&e&&(t=n(t)),8&e)return t;if(4&e&&"object"==typeof t&&t&&t.__esModule)return t;var r=Object.create(null);if(n.r(r),Object.defineProperty(r,"default",{enumerable:!0,value:t}),2&e&&"string"!=typeof t)for(var i in t)n.d(r,i,function(e){return t[e]}.bind(null,i));return r},n.n=function(t){var e=t&&t.__esModule?function(){return t.default}:function(){return t};return n.d(e,"a",e),e},n.o=function(t,e){return Object.prototype.hasOwnProperty.call(t,e)},n.p="",n(n.s=3)}([function(t,e){t.exports=require("svelte/internal")},function(t,e,n){"use strict";var r=n(0);const i=Object(r.create_ssr_component)((t,e,n,r)=>'<div class="Menu"><a href="/">Home</a>\n\t<a href="/fruits">Fruits</a></div>');e.a=i},function(t,e){t.exports=require("svelte")},function(t,e,n){n(4);const r=n(5),i=n(6),o=n(7).default,s=n(8).default,u=(process.env.DEV,i.resolve(__dirname,"./static")),c=r.readdirSync(u),a=c.filter(t=>t.includes("styles")),l=c.filter(t=>t.includes("Home")),d=c.filter(t=>t.includes("Fruits")),f=n(9)({ignoreTrailingSlash:!0,logger:!0});function p(t,e,n,r){return`\n\t<html>\n\t\t<head>\n\t\t\t${t}\n\t\t\t<link rel="stylesheet" href="/${a}" />\n\t\t\t<script>\n\t\t\t\tconst HYDRATION_DATA = ${JSON.stringify(r)}\n\t\t\t<\/script>\n\t\t</head>\n\t\t<body>\n\t\t\t<div id="page">${e}</div>\n\t\t\t<script src="${n}"><\/script>\n\t\t</body>\n\t</html>\n\t`}f.register(n(10)),f.register(n(11),{root:u}),f.route({method:"GET",url:"/",handler:(t,e)=>{e.header("Content-Type","text/html");const n={dateString:(new Date).toString()+" Server-side rendered!"},{html:r,head:i}=o.render(n);e.send(p(i,r,l,n))}}),f.route({method:"GET",url:"/fruits",handler:(t,e)=>{e.header("Content-Type","text/html");const n={fruits:["Apple","Mango","Banana"]},{html:r,head:i}=s.render(n);e.send(p(i,r,d,n))}}),f.listen(process.env.PORT||"8888","0.0.0.0",(function(t,e){t&&(f.log.error(t),process.exit(1)),f.log.info("server listening on "+e)}))},function(t,e,n){"use strict";n.r(e),e.default=n.p+"static/styles-39464b2c5731e524eb5d8a76ba3c25c0.css"},function(t,e){t.exports=require("fs")},function(t,e){t.exports=require("path")},function(t,e,n){"use strict";n.r(e);var r=n(0),i=n(2),o=n(1);const s=Object(r.create_ssr_component)((t,e,n,s)=>{let{dateString:u}=e;return Object(i.onMount)(()=>{setInterval(()=>{u=(new Date).toString()+" Client-side rendered!"},1e3)}),void 0===e.dateString&&n.dateString&&void 0!==u&&n.dateString(u),`${Object(r.validate_component)(o.a,"Menu").$$render(t,{},{},{})}\n\n<h1>Home</h1>\n\n<p>${Object(r.escape)(u)}</p>`});e.default=s},function(t,e,n){"use strict";n.r(e);var r=n(0),i=(n(2),n(1));const o=Object(r.create_ssr_component)((t,e,n,o)=>{let{fruits:s}=e;return void 0===e.fruits&&n.fruits&&void 0!==s&&n.fruits(s),`${Object(r.validate_component)(i.a,"Menu").$$render(t,{},{},{})}\n\n<h1>Fruits</h1>\n\n<ul>${Object(r.each)(s,t=>`<li>${Object(r.escape)(t)}</li>`)}</ul>`});e.default=o},function(t,e){t.exports=require("fastify")},function(t,e){t.exports=require("fastify-compress")},function(t,e){t.exports=require("fastify-static")}]);
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = "./server/index.js");
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ "./components/Menu.svelte":
+/*!********************************!*\
+  !*** ./components/Menu.svelte ***!
+  \********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var svelte_internal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! svelte/internal */ \"svelte/internal\");\n/* harmony import */ var svelte_internal__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(svelte_internal__WEBPACK_IMPORTED_MODULE_0__);\n/* components/Menu.svelte generated by Svelte v3.24.1 */\n\n\nconst Menu = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__[\"create_ssr_component\"])(($$result, $$props, $$bindings, $$slots) => {\n\treturn `<div class=\"${\"Menu\"}\"><a href=\"${\"/\"}\">Home</a>\n\t<a href=\"${\"/fruits\"}\">Fruits</a></div>`;\n});\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Menu);\n\n//# sourceURL=webpack:///./components/Menu.svelte?");
+
+/***/ }),
+
+/***/ "./components/pages/Fruits.svelte":
+/*!****************************************!*\
+  !*** ./components/pages/Fruits.svelte ***!
+  \****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var svelte_internal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! svelte/internal */ \"svelte/internal\");\n/* harmony import */ var svelte_internal__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(svelte_internal__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var svelte__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! svelte */ \"svelte\");\n/* harmony import */ var svelte__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(svelte__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _Menu_svelte__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Menu.svelte */ \"./components/Menu.svelte\");\n/* components/pages/Fruits.svelte generated by Svelte v3.24.1 */\n\n\n\n\n\nconst Fruits = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__[\"create_ssr_component\"])(($$result, $$props, $$bindings, $$slots) => {\n\tlet { fruits } = $$props;\n\tif ($$props.fruits === void 0 && $$bindings.fruits && fruits !== void 0) $$bindings.fruits(fruits);\n\n\treturn `${Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__[\"validate_component\"])(_Menu_svelte__WEBPACK_IMPORTED_MODULE_2__[\"default\"], \"Menu\").$$render($$result, {}, {}, {})}\n\n<h1>Fruits</h1>\n\n<ul>${Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__[\"each\"])(fruits, fruit => `<li>${Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__[\"escape\"])(fruit)}</li>`)}</ul>`;\n});\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Fruits);\n\n//# sourceURL=webpack:///./components/pages/Fruits.svelte?");
+
+/***/ }),
+
+/***/ "./components/pages/Home.svelte":
+/*!**************************************!*\
+  !*** ./components/pages/Home.svelte ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var svelte_internal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! svelte/internal */ \"svelte/internal\");\n/* harmony import */ var svelte_internal__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(svelte_internal__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var svelte__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! svelte */ \"svelte\");\n/* harmony import */ var svelte__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(svelte__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _Menu_svelte__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Menu.svelte */ \"./components/Menu.svelte\");\n/* components/pages/Home.svelte generated by Svelte v3.24.1 */\n\n\n\n\n\nconst Home = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__[\"create_ssr_component\"])(($$result, $$props, $$bindings, $$slots) => {\n\tlet { dateString } = $$props;\n\n\tObject(svelte__WEBPACK_IMPORTED_MODULE_1__[\"onMount\"])(() => {\n\t\tsetInterval(\n\t\t\t() => {\n\t\t\t\tdateString = new Date().toString() + \" Client-side rendered!\";\n\t\t\t},\n\t\t\t1000\n\t\t);\n\t});\n\n\tif ($$props.dateString === void 0 && $$bindings.dateString && dateString !== void 0) $$bindings.dateString(dateString);\n\n\treturn `${Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__[\"validate_component\"])(_Menu_svelte__WEBPACK_IMPORTED_MODULE_2__[\"default\"], \"Menu\").$$render($$result, {}, {}, {})}\n\n<h1>Home</h1>\n\n<p>${Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__[\"escape\"])(dateString)}</p>`;\n});\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Home);\n\n//# sourceURL=webpack:///./components/pages/Home.svelte?");
+
+/***/ }),
+
+/***/ "./scss/index.scss":
+/*!*************************!*\
+  !*** ./scss/index.scss ***!
+  \*************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"static/styles.css\");\n\n//# sourceURL=webpack:///./scss/index.scss?");
+
+/***/ }),
+
+/***/ "./server/index.js":
+/*!*************************!*\
+  !*** ./server/index.js ***!
+  \*************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("__webpack_require__(/*! ../scss/index.scss */ \"./scss/index.scss\");\n\nconst fs = __webpack_require__(/*! fs */ \"fs\");\nconst path = __webpack_require__(/*! path */ \"path\");\n\nconst Home = __webpack_require__(/*! ../components/pages/Home.svelte */ \"./components/pages/Home.svelte\").default;\nconst Fruits = __webpack_require__(/*! ../components/pages/Fruits.svelte */ \"./components/pages/Fruits.svelte\").default;\n\nconst dev = process.env.DEV === 'true';\n\n\n// STATIC\nconst pathStaticDir = path.resolve(__dirname, './static');\nconst files = fs.readdirSync(pathStaticDir);\nconst stylesFilename = files.filter((filename) => filename.includes('styles'));\nconst homeJsFilename = files.filter((filename) => filename.includes('Home'));\nconst fruitsJsFilename = files.filter((filename) => filename.includes('Fruits'));\n\n// init\nconst fastify = __webpack_require__(/*! fastify */ \"fastify\")({\n\tignoreTrailingSlash: true,\n\tlogger: true\n});\n\nfastify.register(__webpack_require__(/*! fastify-compress */ \"fastify-compress\"));\n\nfastify.register(__webpack_require__(/*! fastify-static */ \"fastify-static\"), {\n\troot: pathStaticDir\n});\n\nfunction renderPage (head, body, jsFilename, data) {\n\treturn `\n\t<html>\n\t\t<head>\n\t\t\t${head}\n\t\t\t<link rel=\"stylesheet\" href=\"/${stylesFilename}\" />\n\t\t\t<script>\n\t\t\t\tconst HYDRATION_DATA = ${JSON.stringify(data)}\n\t\t\t</script>\n\t\t</head>\n\t\t<body>\n\t\t\t<div id=\"page\">${body}</div>\n\t\t\t<script src=\"${jsFilename}\"></script>\n\t\t</body>\n\t</html>\n\t`\n}\n\nfastify.route({\n\tmethod: 'GET',\n\turl: '/',\n\thandler: (request, reply) => {\n\t\treply.header('Content-Type', 'text/html');\n\n\t\tconst data = {\n\t\t\tdateString: (new Date()).toString() + ' Server-side rendered!'\n\t\t};\n\n\t\tconst {html, head} = Home.render(data);\n\t\treply.send(renderPage(head, html, homeJsFilename, data));\n\t}\n});\n\nfastify.route({\n\tmethod: 'GET',\n\turl: '/fruits',\n\thandler: (request, reply) => {\n\t\treply.header('Content-Type', 'text/html');\n\n\t\tconst data = {\n\t\t\tfruits: ['Apple', 'Mango', 'Banana']\n\t\t};\n\n\t\tconst {html, head} = Fruits.render(data);\n\n\t\treply.send(renderPage(head, html, fruitsJsFilename, data));\n\t}\n});\n\nfastify.listen(process.env.PORT || '8888', '0.0.0.0', function (err, address) {\n\tif (err) {\n\t\tfastify.log.error(err)\n\t\tprocess.exit(1)\n\t}\n\tfastify.log.info(`server listening on ${address}`)\n});\n\n//# sourceURL=webpack:///./server/index.js?");
+
+/***/ }),
+
+/***/ "fastify":
+/*!**************************!*\
+  !*** external "fastify" ***!
+  \**************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"fastify\");\n\n//# sourceURL=webpack:///external_%22fastify%22?");
+
+/***/ }),
+
+/***/ "fastify-compress":
+/*!***********************************!*\
+  !*** external "fastify-compress" ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"fastify-compress\");\n\n//# sourceURL=webpack:///external_%22fastify-compress%22?");
+
+/***/ }),
+
+/***/ "fastify-static":
+/*!*********************************!*\
+  !*** external "fastify-static" ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"fastify-static\");\n\n//# sourceURL=webpack:///external_%22fastify-static%22?");
+
+/***/ }),
+
+/***/ "fs":
+/*!*********************!*\
+  !*** external "fs" ***!
+  \*********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"fs\");\n\n//# sourceURL=webpack:///external_%22fs%22?");
+
+/***/ }),
+
+/***/ "path":
+/*!***********************!*\
+  !*** external "path" ***!
+  \***********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"path\");\n\n//# sourceURL=webpack:///external_%22path%22?");
+
+/***/ }),
+
+/***/ "svelte":
+/*!*************************!*\
+  !*** external "svelte" ***!
+  \*************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"svelte\");\n\n//# sourceURL=webpack:///external_%22svelte%22?");
+
+/***/ }),
+
+/***/ "svelte/internal":
+/*!**********************************!*\
+  !*** external "svelte/internal" ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"svelte/internal\");\n\n//# sourceURL=webpack:///external_%22svelte/internal%22?");
+
+/***/ })
+
+/******/ });

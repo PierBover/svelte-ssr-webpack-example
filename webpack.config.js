@@ -3,15 +3,16 @@ const fs = require('fs');
 const rimraf = require('rimraf');
 
 const NodeExternals = require('webpack-node-externals');
-// const NodemonPlugin = require('nodemon-webpack-plugin');
+const WebpackWatchedGlobEntries = require('webpack-watched-glob-entries-plugin');
 
 const PRODUCTION = process.env.NODE_ENV === 'production';
 const DEVELOPMENT = !PRODUCTION;
 
 const webpackConfigs = [];
 
-// delete old folder as clean-webpack-plugin doesn't work properly with multiple configs
+// Clean folders
 rimraf.sync(path.join(__dirname, 'dist'));
+rimraf.sync(path.join(__dirname, 'client-entry-scripts'));
 
 // SERVER + SCSS
 
@@ -70,11 +71,9 @@ webpackConfigs.push({
 // CLIENT JS
 
 webpackConfigs.push({
-	// externals: [NodeExternals()],
-	entry:{
-		Home: './client-entry/Home.js',
-		Fruits: './client-entry/Fruits.js',
-	},
+	entry: WebpackWatchedGlobEntries.getEntries(
+		[path.resolve(__dirname, './client-entry-scripts/*.js')]
+	),
 	mode: PRODUCTION ? 'production' : 'development',
 	output: {
 		path: path.join(__dirname, 'dist/static'),
@@ -93,7 +92,10 @@ webpackConfigs.push({
 				}
 			}
 		]
-	}
+	},
+	plugins: [
+		new WebpackWatchedGlobEntries()
+	]
 });
 
 
