@@ -8,7 +8,7 @@
     "webpack-watch": "webpack --watch",
     "create-entry-scripts": "node npm-scripts/create-client-entry-scripts.js",
     "pages-watch": "chokidar \"components/pages/**\" -c \"npm run create-entry-scripts\" --initial --silent",
-    "start": "npm run webpack-build && node dist/bundle.js",
+    "start": "npm run create-entry-scripts && npm run webpack-build && node dist/bundle.js",
     "dev": "concurrently \"npm:pages-watch\" \"npm:webpack-watch\"  \"nodemon dist/bundle.js\""
   },
   "repository": {

@@ -40,7 +40,7 @@ function renderPage (head, body, jsFilename, data) {
 		</head>
 		<body>
 			<div id="page">${body}</div>
-			<script src="${jsFilename}"></script>
+			<script src="${jsFilename}" defer></script>
 		</body>
 	</html>
 	`

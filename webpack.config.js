@@ -12,7 +12,6 @@ const webpackConfigs = [];
 
 // Clean folders
 rimraf.sync(path.join(__dirname, 'dist'));
-rimraf.sync(path.join(__dirname, 'client-entry-scripts'));
 
 // SERVER + SCSS
 
